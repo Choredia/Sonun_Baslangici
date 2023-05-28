@@ -18,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     private float enemyDamage = 10f;
     public bool enemyAttack;
 
+
     //Patrolling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -49,13 +50,7 @@ public class EnemyAI : MonoBehaviour
 
         if (!playerInAttackRange &&  !playerInSightRange) {Patrolling();} //görüþ ve attck menzilinde deðilse gez
         if (playerInSightRange && !playerInAttackRange) {ChasePlayer();} //görüþ menzilindeyse amaattack menzilinde deðilse kovala
-        if (playerInAttackRange &&  playerInSightRange) {AttackPlayer();} // hem görüþ hem attack menzilindeyse attack playert
-
-        if (enemyAttack)
-        {
-            
-
-        }
+        if (playerInAttackRange &&  playerInSightRange) {AttackPlayer();} // hem görüþ hem attack menzilindeyse attack player
     }
 
     private void Patrolling()
@@ -135,6 +130,7 @@ public class EnemyAI : MonoBehaviour
     private void DestroyEnemy()
     {
         Destroy(gameObject);
+        
     }
     private void OnDrawGizmosSelected()
     {
