@@ -8,14 +8,16 @@ public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
     public GameObject Player;
-    public Transform player;
+    public Transform playert;
     public LayerMask whatIsGround, whatIsPlayer;
     private float enemyHealth = 90f;
     private float playerHealth = 90f;
     private Animator animator;
     private Animator animatorPlayer;
     private bool enemyMove;
-    private float enemyDamage = 15f;
+    private float enemyDamage = 10f;
+    public bool enemyAttack;
+
 
     //Patrolling
     public Vector3 walkPoint;
@@ -34,7 +36,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playert = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
         animatorPlayer = Player.GetComponent<Animator>();
         
@@ -79,7 +81,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void ChasePlayer()
     {
-        agent.SetDestination(player.position);
+        agent.SetDestination(playert.position);
         animator.SetBool("enemyMove", true);
         animator.SetBool("enemyAttack", false);
 
@@ -90,18 +92,26 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(transform.position);
         animator.SetBool("enemyMove", false);
         animator.SetBool("enemyAttack", true);
+        enemyAttack = true;
+       
 
 
-        transform.LookAt(player);
+
+        transform.LookAt(playert);
 
         if (!alreadyAttacked)
         {
             //Attack code here
             
             animator.SetBool("enemyAttack", false);
+            enemyAttack = false;
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(30f);
         }
 
     }
@@ -109,6 +119,7 @@ public class EnemyAI : MonoBehaviour
     {
         alreadyAttacked = false;
         animator.SetBool("enemyAttack", true);
+        enemyAttack = true;
     }
     public void TakeDamage(float damage)
     {
@@ -119,6 +130,7 @@ public class EnemyAI : MonoBehaviour
     private void DestroyEnemy()
     {
         Destroy(gameObject);
+        
     }
     private void OnDrawGizmosSelected()
     {

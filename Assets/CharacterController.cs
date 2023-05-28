@@ -10,10 +10,13 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float turnSpeed = 360;
     [SerializeField] private float playerHealth = 90f;
     [SerializeField] private float enemyDamage = 55;
+    
+    [SerializeField] AudioClip walkSound;
 
     private Vector3 vectorInput;
     private Rigidbody rb;
     private Animator animator;
+    private AudioSource audioSource;
 
     private bool isMoving;
     // Start is called before the first frame update
@@ -21,6 +24,7 @@ public class CharacterController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         
     }
 
@@ -28,10 +32,29 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         GatherInput();
-        
+
         Look();
 
-        
+        Sword();
+
+    }
+
+    private void Sword()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetBool("Attack", true);
+            audioSource.Stop();
+           
+
+
+
+        }
+        else
+        {
+            animator.SetBool("Attack", false);
+
+        }
     }
 
     private void FixedUpdate()
@@ -60,30 +83,24 @@ public class CharacterController : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
 
             animator.SetBool("isMoving", true);
+            if (!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(walkSound);
+            }
         }
         else
         {
             animator.SetBool("isMoving", false);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+            audioSource.Stop();
+            Sword();
+            
         }
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "enemy")
-        {
-            playerHealth -= enemyDamage;
-            if (playerHealth <= 0) { Invoke(nameof(DestroyPlayer), .5f); }
-
-
-        }
-
-    }
-    private void DestroyPlayer()
-    {
-        Destroy(this.gameObject);
-    }
+    
+    
 
 
 
