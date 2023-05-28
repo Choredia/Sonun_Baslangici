@@ -532,13 +532,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "???: Bak\u0131yorum da \xE7aresizsin.\r\nKarakter: sen de kimsin?!\r\n???:Sadece
-    bir dost tan\u0131mad\u0131n m\u0131 ?\r\nKarakter: Kasabadaki o lanet iksiri
+    bir dost tan\u0131mad\u0131n m\u0131?\r\nKarakter: Kasabadaki o lanet iksiri
     ald\u0131\u011F\u0131m sat\u0131c\u0131s\u0131n!\r\n???: Sat\u0131c\u0131 mmm\u2026
     Beni tan\u0131mlamak i\xE7in pek de yeterli de\u011Fil.\r\nKarakter: O zaman
-    s\xF6yle nesin sen!\r\n???: K\xF6t\xFCl\xFCk yapmak isteyip iyilik \xFCreten
-    b\xFCt\xFCn\xFCn par\xE7as\u0131\u2026 \u015Eimdi yard\u0131m\u0131m\u0131 istiyor
-    musun?\r\nKarakter : Zaten \u015Fu haldeyken geri \xE7evirecek de\u011Filim s\xF6yle
-    bakal\u0131m teklifin ne.\r\n\r\nSonun ba\u015Flang\u0131c\u0131\u2026\r\n"
+    s\xF6yle nesin sen?\n???: K\xF6t\xFCl\xFCk yapmak isteyip iyilik \xFCreten b\xFCt\xFCn\xFCn
+    par\xE7as\u0131\u2026 \u015Eimdi yard\u0131m\u0131m\u0131 istiyor musun?\r\nKarakter
+    : Zaten \u015Fu haldeyken geri \xE7evirecek de\u011Filim s\xF6yle bakal\u0131m
+    teklifin ne?\n\r\nSonun ba\u015Flang\u0131c\u0131\u2026\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 42df1c7856584b6b8db9a509b6b10074, type: 2}
@@ -872,6 +872,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1956930354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c99193eee4182ca42971603f6a3023e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ab2450c775324747bf294425448226c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
