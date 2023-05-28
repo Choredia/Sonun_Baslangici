@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour
                 ResumeGame();
             else
                 PauseGame();
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
@@ -46,20 +47,20 @@ public class PauseMenu : MonoBehaviour
 
     public void AnaMenuyeDon()
     {
-        // Ana menü sahnesine dön
+        // Ana menï¿½ sahnesine dï¿½n
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void AyarlariAc()
     {
-        // Ayarlar menüsünü aç
+        // Ayarlar menï¿½sï¿½nï¿½ aï¿½
         SceneManager.LoadScene("DSettingsMenu");
     }
 
     public void CikisYap()
     {
-        // Uygulamadan çýk
+        // Uygulamadan ï¿½ï¿½k
         UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
