@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void OyunaBasla()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Game");
     }
 
     public void CikisYap()

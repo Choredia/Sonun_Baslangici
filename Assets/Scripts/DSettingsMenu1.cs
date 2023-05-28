@@ -88,10 +88,10 @@ public class DSettingsMenu1 : MonoBehaviour
 
     // Geri dön
     public GameObject pauseScreen;
-    public string SampleScene; // Duraklatma menüsünün olduðu sahnenin adý
+    public string Game; // Duraklatma menüsünün olduðu sahnenin adý
 
     public void GoBack()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Game");
     }
 }

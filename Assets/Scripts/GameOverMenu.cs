@@ -8,7 +8,7 @@ public class GameOverMenu : MonoBehaviour
     public void TekrarOyna()
     {
         // GameOver sahnesini yeniden yükle
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Game");
     }
 
     public void CikisYap()
