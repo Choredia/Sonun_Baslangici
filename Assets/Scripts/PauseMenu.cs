@@ -61,7 +61,7 @@ public class PauseMenu : MonoBehaviour
     public void CikisYap()
     {
         // Uygulamadan ��k
-        UnityEditor.EditorApplication.isPlaying = false;
+        
         Application.Quit();
     }
 }

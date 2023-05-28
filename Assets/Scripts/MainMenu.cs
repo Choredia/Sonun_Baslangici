@@ -13,7 +13,6 @@ public class MainMenu : MonoBehaviour
     public void CikisYap()
     {
         // Uygulamadan çýk
-        UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 

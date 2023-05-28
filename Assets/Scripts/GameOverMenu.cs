@@ -14,7 +14,7 @@ public class GameOverMenu : MonoBehaviour
     public void CikisYap()
     {
         // Uygulamadan çýk
-        UnityEditor.EditorApplication.isPlaying = false;
+        
         Application.Quit();
     }
 }
