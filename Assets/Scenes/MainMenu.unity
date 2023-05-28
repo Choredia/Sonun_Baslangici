@@ -208,8 +208,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1334210234}
-        m_TargetAssemblyTypeName: AnaMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_TargetAssemblyTypeName: MainMenu, NavMeshComponents
+        m_MethodName: OyunaBasla
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -342,8 +342,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1334210234}
-        m_TargetAssemblyTypeName: AnaMenu, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_TargetAssemblyTypeName: MainMenu, NavMeshComponents
+        m_MethodName: CikisYap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -476,8 +476,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1334210234}
-        m_TargetAssemblyTypeName: AnaMenu, Assembly-CSharp
-        m_MethodName: GoToSettingsMenu
+        m_TargetAssemblyTypeName: MainMenu, NavMeshComponents
+        m_MethodName: AyarlaraGit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1233,7 +1233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1334210232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 529068e2475ecca46a7b2234efc0cc46, type: 3}
+  m_Script: {fileID: 11500000, guid: a6b46725c32dd9745918b7ab660f1d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1907943481
