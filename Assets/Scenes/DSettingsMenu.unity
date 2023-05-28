@@ -207,9 +207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 378133498}
-        m_TargetAssemblyTypeName: AyarlarMenu, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+      - m_Target: {fileID: 378133500}
+        m_TargetAssemblyTypeName: DSettingsMenu1, NavMeshComponents
+        m_MethodName: GoBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -477,17 +477,17 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 378133498}
-        m_TargetAssemblyTypeName: AyarlarMenu, Assembly-CSharp
-        m_MethodName: SetFullscreen
-        m_Mode: 6
+      - m_Target: {fileID: 378133500}
+        m_TargetAssemblyTypeName: DSettingsMenu1, NavMeshComponents
+        m_MethodName: SetScreenMode
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
 --- !u!1 &198503627
@@ -537,6 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 378133499}
   - component: {fileID: 378133498}
+  - component: {fileID: 378133500}
   m_Layer: 0
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -556,8 +557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a55ada9724d9c459f62f8de2b42eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeAmount: {fileID: 1954798265}
-  slider: {fileID: 1816496406}
 --- !u!4 &378133499
 Transform:
   m_ObjectHideFlags: 0
@@ -571,8 +570,24 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &378133500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378133497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6b9993c98fe9b4a919d5c7512eb938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeAmount: {fileID: 1954798265}
+  slider: {fileID: 1816496406}
+  pauseScreen: {fileID: 0}
+  SampleScene: 
 --- !u!1 &379958615
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,9 +672,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 378133498}
-        m_TargetAssemblyTypeName: AyarlarMenu, Assembly-CSharp
-        m_MethodName: medium
+      - m_Target: {fileID: 378133500}
+        m_TargetAssemblyTypeName: DSettingsMenu1, NavMeshComponents
+        m_MethodName: SetMediumQuality
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -818,7 +833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -464.25, y: -40.325}
+  m_AnchoredPosition: {x: -464.25, y: -39.40996}
   m_SizeDelta: {x: 441.5144, y: 770}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456786987
@@ -1050,9 +1065,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 378133498}
-        m_TargetAssemblyTypeName: AyarlarMenu, Assembly-CSharp
-        m_MethodName: high
+      - m_Target: {fileID: 378133500}
+        m_TargetAssemblyTypeName: DSettingsMenu1, NavMeshComponents
+        m_MethodName: SetHighQuality
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1454,9 +1469,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 378133498}
-        m_TargetAssemblyTypeName: AyarlarMenu, Assembly-CSharp
-        m_MethodName: low
+      - m_Target: {fileID: 378133500}
+        m_TargetAssemblyTypeName: DSettingsMenu1, NavMeshComponents
+        m_MethodName: SetLowQuality
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2067,7 +2082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 495.75, y: -392}
+  m_AnchoredPosition: {x: 495.75, y: -333}
   m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389847595
@@ -2113,19 +2128,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1389847596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 378133498}
-        m_TargetAssemblyTypeName: AyarlarMenu, Assembly-CSharp
-        m_MethodName: SetAudio
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1389847596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2176,8 +2179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a55ada9724d9c459f62f8de2b42eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeAmount: {fileID: 1954798265}
-  slider: {fileID: 1816496406}
 --- !u!1 &1426334807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,7 +2255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 495.75, y: -534.67}
+  m_AnchoredPosition: {x: 495.75, y: -490}
   m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1486740820
@@ -2921,7 +2922,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1803486705
 GameObject:
@@ -3090,8 +3091,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 378133498}
-        m_TargetAssemblyTypeName: AyarlarMenu, Assembly-CSharp
+      - m_Target: {fileID: 378133500}
+        m_TargetAssemblyTypeName: DSettingsMenu1, NavMeshComponents
         m_MethodName: SetAudio
         m_Mode: 0
         m_Arguments:
