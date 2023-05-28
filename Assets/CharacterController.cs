@@ -11,18 +11,25 @@ public class CharacterController : MonoBehaviour
 
     private Vector3 vectorInput;
     private Rigidbody rb;
+    private Animator animator;
 
+    private bool isMoving;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         GatherInput();
+        
         Look();
+
+        
     }
 
     private void FixedUpdate()
@@ -33,17 +40,33 @@ public class CharacterController : MonoBehaviour
     private void GatherInput()
     {
         vectorInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+        
+        
     }
+    
 
     private void Look ()
     {
         if (vectorInput != Vector3.zero)
         {
-            var relative = (transform.position + vectorInput) - transform.position;
+            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
+
+            var skewedInput = matrix.MultiplyPoint3x4(vectorInput);
+
+            var relative = (transform.position + skewedInput) - transform.position;
             var rot = Quaternion.LookRotation(relative, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
+
+            animator.SetBool("isMoving", true);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+            rb.velocity = Vector3.zero;
         }
     }
+        
+    
 
     void CharacterMovement()
     {
