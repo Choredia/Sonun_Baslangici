@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public GameObject Player;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
-    public float enemyHealth;
+    private float enemyHealth = 90f;
+    private float playerHealth = 90f;
+    private Animator animator;
+    private Animator animatorPlayer;
+    private bool enemyMove;
+    private float enemyDamage = 15f;
 
     //Patrolling
     public Vector3 walkPoint;
@@ -18,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject projectile;
+    
 
     //States
     public float sightRange, attackRange;
@@ -28,6 +35,9 @@ public class EnemyAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>();
+        animatorPlayer = Player.GetComponent<Animator>();
+        
     }
 
     private void Update()
@@ -47,6 +57,9 @@ public class EnemyAI : MonoBehaviour
         if (walkPointSet) { agent.SetDestination(walkPoint); }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
+        animator.SetBool("enemyMove", true);
+        animator.SetBool("enemyAttack", false);
+
 
         //WalkPoint Reached
         if (distanceToWalkPoint.magnitude < 1f)
@@ -67,20 +80,25 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        animator.SetBool("enemyMove", true);
+        animator.SetBool("enemyAttack", false);
+
     }
     private void AttackPlayer()
     {
         //Make sureenemy doesn't move
         agent.SetDestination(transform.position);
+        animator.SetBool("enemyMove", false);
+        animator.SetBool("enemyAttack", true);
+
 
         transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
             //Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            
+            animator.SetBool("enemyAttack", false);
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -90,9 +108,11 @@ public class EnemyAI : MonoBehaviour
     private void ResetAttack()
     {
         alreadyAttacked = false;
+        animator.SetBool("enemyAttack", true);
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
+
         enemyHealth -= damage;
         if (enemyHealth <= 0) { Invoke(nameof(DestroyEnemy), .5f); }
     }
@@ -107,4 +127,6 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
+   
+
 }

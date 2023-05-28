@@ -8,6 +8,8 @@ public class CharacterController : MonoBehaviour
     
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float turnSpeed = 360;
+    [SerializeField] private float playerHealth = 90f;
+    [SerializeField] private float enemyDamage = 55;
 
     private Vector3 vectorInput;
     private Rigidbody rb;
@@ -63,10 +65,27 @@ public class CharacterController : MonoBehaviour
         {
             animator.SetBool("isMoving", false);
             rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
     }
-        
-    
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "enemy")
+        {
+            playerHealth -= enemyDamage;
+            if (playerHealth <= 0) { Invoke(nameof(DestroyPlayer), .5f); }
+
+
+        }
+
+    }
+    private void DestroyPlayer()
+    {
+        Destroy(this.gameObject);
+    }
+
+
 
     void CharacterMovement()
     {
