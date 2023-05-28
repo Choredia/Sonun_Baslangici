@@ -42,6 +42,6 @@ public class Timer : MonoBehaviour
     }
     void GameOver()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("EndOfStory");
     }
 }
