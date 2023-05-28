@@ -31,6 +31,16 @@ public class CharacterController : MonoBehaviour
         
         Look();
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetBool("Attack", true);
+        }
+        else
+        {
+            animator.SetBool("Attack", false);
+        }
+        
+
         
     }
 
@@ -69,21 +79,8 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "enemy")
-        {
-            playerHealth -= enemyDamage;
-            if (playerHealth <= 0) { Invoke(nameof(DestroyPlayer), .5f); }
-
-
-        }
-
-    }
-    private void DestroyPlayer()
-    {
-        Destroy(this.gameObject);
-    }
+    
+    
 
 
 
