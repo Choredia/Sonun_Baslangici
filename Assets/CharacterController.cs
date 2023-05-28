@@ -25,7 +25,9 @@ public class CharacterController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        
+        Cursor.lockState = CursorLockMode.Locked; //fare imlecini 
+
+
     }
 
     // Update is called once per frame
